@@ -1,18 +1,19 @@
 import { View, Text, Button, StyleSheet, TextInput, TouchableHighlight } from 'react-native';
 
-export default function Login () {
+export default function Login ({navigation}) {
 
-    const entrar = () => {
-        console.log("Entrando");
-    }
+    const navegar = () => {
+        navigation.navigate('Home');
+      }
 
     return (
         <View style={styles.container1}>
+            <Text style={styles.text0} >Projeto de exemplo</Text>
             <Text style={styles.text1} >App de CRUD</Text>
             <Text style={styles.text2} >Login</Text>
             <TextInput style={styles.input1} />
             <TextInput style={styles.input1} />
-            <TouchableHighlight style={styles.button1} onPress={entrar} >
+            <TouchableHighlight style={styles.button1} onPress={navegar} >
                 <Text style={styles.textButton1}>Entrar</Text>
             </TouchableHighlight>
         </View>
@@ -25,12 +26,16 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
-
     },
+    text0: {
+        fontSize: 22,
+        fontFamily: 'Verdana',
+        marginTop: 80
+    }, 
     text1: {
-        
-        fontSize: 20,
-        fontFamily: 'Verdana'
+        fontSize: 18,
+        fontFamily: 'Verdana',
+        marginTop: 20
     }, 
     text2: {
         marginTop: 200,
@@ -53,7 +58,6 @@ const styles = StyleSheet.create({
         height: 30,
         width: 150,
         borderRadius: 4
-        
     },
     textButton1: {
         fontSize: 20,
