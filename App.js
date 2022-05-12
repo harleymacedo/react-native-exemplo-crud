@@ -3,8 +3,11 @@ import { BackHandler, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
 import Login from './src/screens/Login';
 import Home from './src/screens/Home';
+import CadastroAssunto from './src/screens/CadastroAssunto';
+import ListarAssuntos from './src/screens/ListarAssuntos';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +17,8 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name='Login' component={Login} options={{headerShown: false}} />
         <Stack.Screen name='Home' component={Home} options={{headerBackVisible: false}}/>
+        <Stack.Screen name='CadastroAssunto' component={CadastroAssunto} />
+        <Stack.Screen name='ListarAssuntos' component={ListarAssuntos} />
       </Stack.Navigator>
     </NavigationContainer>
   );
