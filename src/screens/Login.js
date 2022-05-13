@@ -1,19 +1,31 @@
-import { View, Text, Button, StyleSheet, TextInput, TouchableHighlight } from 'react-native';
+import { useState } from 'react';
+import { View, Text, Alert, StyleSheet, TextInput, TouchableHighlight } from 'react-native';
 
 export default function Login ({navigation}) {
 
+    const [usuario, setUsuario] = useState("");
+    const [senha, setSenha] = useState("");
+
     const navegar = () => {
         navigation.navigate('Home');
-      }
+    }
+
+    const verificarSenha = () => {
+       if (usuario === "Harley"  && senha === "12345") {
+           navegar();
+       } else {
+           Alert.alert("Usuário ou senha incorretos.");
+       }
+    }
 
     return (
         <View style={styles.container1}>
             <Text style={styles.text0} >Projeto de exemplo</Text>
             <Text style={styles.text1} >App de CRUD</Text>
             <Text style={styles.text2} >Login</Text>
-            <TextInput style={styles.input1} />
-            <TextInput style={styles.input1} />
-            <TouchableHighlight style={styles.button1} onPress={navegar} >
+            <TextInput style={styles.input1} placeholder="Usuário" onChangeText={ (text) => { setUsuario(text); } } />
+            <TextInput style={styles.input1} placeholder="Senha" secureTextEntry={true} onChangeText={ (text) => { setSenha(text); } } />
+            <TouchableHighlight style={styles.button1} onPress={verificarSenha} >
                 <Text style={styles.textButton1}>Entrar</Text>
             </TouchableHighlight>
         </View>
