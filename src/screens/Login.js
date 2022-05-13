@@ -12,6 +12,8 @@ export default function Login ({navigation}) {
 
     const verificarSenha = () => {
        if (usuario === "Harley"  && senha === "12345") {
+           setUsuario("");
+           setSenha("");
            navegar();
        } else {
            Alert.alert("Usuário ou senha incorretos.");
